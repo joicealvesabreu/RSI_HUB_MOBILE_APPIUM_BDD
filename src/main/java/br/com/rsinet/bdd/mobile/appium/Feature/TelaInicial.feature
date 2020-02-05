@@ -6,9 +6,8 @@ Funcionalidade: Buscar um produto por tela inicial do app
 @telainicial1
 Cenario: 
 Dado que eu estiver na aplicacao
-Quando eu clicar na imagem do laptop
-E clicar no produto escolhido 
-E adicionar-lo
+Quando cliclar e escolher o produto
+E Adicionar no carinho
 Entao serei direcionado a tela de login
 
 @telainicial2

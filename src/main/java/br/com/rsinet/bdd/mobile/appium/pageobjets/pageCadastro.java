@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-import br.com.rsinet.bdd.mobile.appium.gerenciador.DriverFactory;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
@@ -15,10 +15,14 @@ public class pageCadastro {
 
 	public WebElement element;
 	public WebDriver driver;
+	
+	public pageCadastro(WebDriver driver) {
+		this.driver=driver;
+	}
 
-	public WebElement menu(WebDriver driver) {
-		element = driver.findElement(By.id("com.Advantage.aShopping:id/imageViewMenu"));
-		return element;
+	public void menu() {
+		 driver.findElement(By.id("com.Advantage.aShopping:id/imageViewMenu")).click();
+		
 	}
 
 	public WebElement login(WebDriver driver) {
