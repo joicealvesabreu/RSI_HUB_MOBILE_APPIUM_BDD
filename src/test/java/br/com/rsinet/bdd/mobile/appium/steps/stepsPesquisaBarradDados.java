@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
 import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
-import br.com.rsinet.bdd.mobile.appium.pageobjets.pageCadastro;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -13,18 +13,18 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class stepsPesquisaBarradDados {
 
-	public AndroidDriver driver;
-	public pageCadastro cadastro;
+	
+
 	
 	@Dado("^que eu esteja na aplicacao$")
 	public void que_eu_esteja_na_aplicacao() throws Throwable {
-		driver= DriverFactory.InicializaDriver();
-		cadastro=PageFactory.initElements(driver, pageCadastro.class);
+		
+	
 	}
 
 	@Quando("^eu escrevar o nome do produto$")
 	public void eu_escrevar_o_nome_do_produto() throws Throwable {
-	cadastro.menu();
+	
 	}
 
 	@Quando("^eu clicar na pesquisar$")

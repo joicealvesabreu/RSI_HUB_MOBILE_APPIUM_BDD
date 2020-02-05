@@ -6,15 +6,17 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import io.appium.java_client.android.AndroidDriver;
+
 public class PagePesquisaPorMassa {
-	private WebDriver driver;
+	private AndroidDriver<?>  driver;
 	private WebElement element;
 
-	public void PagePesquisaPorMassa(WebDriver driver) {
+	public PagePesquisaPorMassa(AndroidDriver<?> driver) {
 		this.driver = driver;
-		PageFactory.initElements(driver, this);
 	}
-	
+
+		
 	@FindBy(how= How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.EditText")
 	private WebElement search;
 	

@@ -5,6 +5,7 @@ import br.com.rsinet.bdd.mobile.appium.utility.Constant;
 import br.com.rsinet.bdd.mobile.appium.utility.ExcelUtils;
 
 public class Excel {
+	
 	public  String sUsuario() throws Exception {
 		//ExcelUtils.setExcelFile(
 		//		"./br.com.rsinet.hub.bdd/target/Dados.xlsx", "Planilha1");

@@ -14,10 +14,16 @@ public class DriverFactory {
 
 	private static AndroidDriver<MobileElement> driver;
 
-	public static AndroidDriver<MobileElement> InicializaDriver() throws MalformedURLException {
+	public static AndroidDriver<MobileElement> getDriver()  {
 
 		if (driver == null) {
+			criandoDriver();
+		}
+		return driver;
+		}
 
+public static  void criandoDriver() {
+	
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 			capabilities.setCapability("deviceName", "JoiceAbreu");
@@ -27,16 +33,20 @@ public class DriverFactory {
 			capabilities.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");
 			capabilities.setCapability("unicodeKeyboard", true);
 			capabilities.setCapability("resetKeyboard", true);
+		
+		try {
 			driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
-			driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		}catch (MalformedURLException e1) {
+			e1.printStackTrace();
 		}
-		return driver;
-
-	}
+		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+			
+		}
 
 	public static AndroidDriver<MobileElement> FechandoDriver() {
 		if (driver != null) {
 			driver.quit();
+			
 		}
 		return driver = null;
 	}
