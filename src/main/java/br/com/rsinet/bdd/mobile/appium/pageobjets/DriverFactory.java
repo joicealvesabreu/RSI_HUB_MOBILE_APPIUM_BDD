@@ -14,16 +14,11 @@ public class DriverFactory {
 
 	private static AndroidDriver<MobileElement> driver;
 
-	public static AndroidDriver<MobileElement> getDriver()  {
 
-		if (driver == null) {
-			criandoDriver();
-		}
-		return driver;
-		}
 
-public static  void criandoDriver() {
 	
+	public static AndroidDriver<MobileElement> InicializaDriver() throws MalformedURLException {
+	if (driver == null) {
 			DesiredCapabilities capabilities = new DesiredCapabilities();
 			capabilities.setCapability(CapabilityType.BROWSER_NAME, "");
 			capabilities.setCapability("deviceName", "JoiceAbreu");
@@ -40,8 +35,10 @@ public static  void criandoDriver() {
 			e1.printStackTrace();
 		}
 		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
-			
-		}
+	}
+	return driver;
+	
+}
 
 	public static AndroidDriver<MobileElement> FechandoDriver() {
 		if (driver != null) {

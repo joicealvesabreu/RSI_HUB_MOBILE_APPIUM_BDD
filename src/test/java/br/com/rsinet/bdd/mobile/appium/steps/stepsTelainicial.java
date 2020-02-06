@@ -3,6 +3,14 @@ package br.com.rsinet.bdd.mobile.appium.steps;
 
 
 
+import java.net.MalformedURLException;
+
+import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.PageFactory;
+
+import com.cucumber.listener.Reporter;
+
 import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
 
 import br.com.rsinet.bdd.mobile.appium.pageobjets.PageAdvantage;
@@ -19,47 +27,44 @@ public class stepsTelainicial {
 	public PageAdvantage principal;
 
 	public AndroidDriver<MobileElement>driver;
-
+	
+	public  stepsTelainicial() throws MalformedURLException {
+		driver =DriverFactory.InicializaDriver();
+		principal =PageFactory.initElements(driver, PageAdvantage.class);
+	}
 
 	@Dado("^que eu estiver na aplicacao$")
 	public void que_eu_estiver_na_aplicacao() throws Throwable {
-		
-		driver =DriverFactory.getDriver();
+	   
 	}
 
-	@Quando("^cliclar e escolher o produto$")
-	public void cliclar_e_escolher_o_produto() throws Throwable {
-		principal.ClicarLaptop().click();
+	@Quando("^eu escolher o produto$")
+	public void eu_escolher_o_produto() throws Throwable {
+	 principal.ClicarLaptop();
 	}
 
 	@Quando("^Adicionar no carinho$")
 	public void adicionar_no_carinho() throws Throwable {
-
+	principal.EscolhendoLaptop();
+	principal.Adicionandooproduto();
 	}
 
 	@Entao("^serei direcionado a tela de login$")
 	public void serei_direcionado_a_tela_de_login() throws Throwable {
-
+		String chegounologin = driver.findElement(By.xpath(
+				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView"))
+				.getText();
+		Assert.assertTrue(chegounologin.contains("Login"));
+		Reporter.addStepLog("O produto foi encontra");
 	}
 
-	@Dado("^que estiver na aplicacao$")
-	public void que_estiver_na_aplicacao() throws Throwable {
-
+	@Entao("^serei direcionado a tela errada$")
+	public void serei_direcionado_a_tela_errada() throws Throwable {
+	System.out.println("chegouaqui");
+	Reporter.addStepLog("O produto não existe resultado");
 	}
+	
+	
 
-	@Quando("^eu clicar na imagem$")
-	public void eu_clicar_na_imagem() throws Throwable {
 
-	}
-
-	@Entao("^sere direcionado a tela de produto incorreto$")
-	public void sere_direcionado_a_tela_de_produto_incorreto() throws Throwable {
-
-	}
-
-	@After
-	public void encerra() {
-		
-	driver=DriverFactory.FechandoDriver();
-	}
 }
