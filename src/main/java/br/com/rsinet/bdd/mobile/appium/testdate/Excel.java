@@ -6,11 +6,12 @@ import br.com.rsinet.bdd.mobile.appium.utility.ExcelUtils;
 
 public class Excel {
 	
+	
+	
 	public  String sUsuario() throws Exception {
-		//ExcelUtils.setExcelFile(
-		//		"./br.com.rsinet.hub.bdd/target/Dados.xlsx", "Planilha1");
-		ExcelUtils.setExcelFile(Constant.Path_TestData + Constant.File_TestData, "Planilha1");
-		String sUsuario = ExcelUtils.getCellData(11, 0);
+	ExcelUtils.setExcelFile(
+			"C:\\Users\\joice.abreu\\Desktop\\Dados.xlsx", "Planilha1");
+		String sUsuario = ExcelUtils.getCellData(16, 0);
 		return sUsuario;
 	}
 

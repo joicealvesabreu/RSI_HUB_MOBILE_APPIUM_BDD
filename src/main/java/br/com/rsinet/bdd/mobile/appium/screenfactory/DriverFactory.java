@@ -1,4 +1,4 @@
-package br.com.rsinet.bdd.mobile.appium.pageobjets;
+package br.com.rsinet.bdd.mobile.appium.screenfactory;
 
 import java.net.MalformedURLException;
 import java.net.URL;

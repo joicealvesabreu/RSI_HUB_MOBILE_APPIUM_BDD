@@ -11,9 +11,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.cucumber.listener.Reporter;
 
-import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
-
-import br.com.rsinet.bdd.mobile.appium.pageobjets.PageAdvantage;
+import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
+import br.com.rsinet.bdd.mobile.appium.screenfactory.ScreenTelaInicial;
 import cucumber.api.java.After;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
@@ -24,13 +23,13 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class stepsTelainicial {
 
-	public PageAdvantage principal;
+	public ScreenTelaInicial principal;
 
 	public AndroidDriver<MobileElement>driver;
 	
 	public  stepsTelainicial() throws MalformedURLException {
 		driver =DriverFactory.InicializaDriver();
-		principal =PageFactory.initElements(driver, PageAdvantage.class);
+		principal =PageFactory.initElements(driver, ScreenTelaInicial.class);
 	}
 
 	@Dado("^que eu estiver na aplicacao$")

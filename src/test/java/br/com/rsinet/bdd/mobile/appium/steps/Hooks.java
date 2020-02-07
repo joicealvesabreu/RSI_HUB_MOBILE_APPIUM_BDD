@@ -14,8 +14,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.cucumber.listener.Reporter;
 import com.google.common.io.Files;
 
-import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
-
+import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 
@@ -27,11 +26,12 @@ public class Hooks {
 	public AndroidDriver<MobileElement> driver;
 	public ExtentReports extent;
 	public ExtentTest logger;
-
+	public Reporter report;
+	
 	public void hooks() {
 		this.driver = driver;
+
 	}
-	
 	
 
 	@After(order =0)
@@ -52,7 +52,6 @@ public class Hooks {
 					System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
 
 			Files.copy(sourcePath, destinationPath);
-
 			Reporter.addScreenCaptureFromPath(destinationPath.toString());
 		} catch (IOException e) {
 		}

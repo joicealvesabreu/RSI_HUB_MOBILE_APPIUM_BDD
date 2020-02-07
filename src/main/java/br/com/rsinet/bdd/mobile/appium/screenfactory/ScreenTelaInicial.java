@@ -1,4 +1,4 @@
-package br.com.rsinet.bdd.mobile.appium.pageobjets;
+package br.com.rsinet.bdd.mobile.appium.screenfactory;
 
 import java.net.MalformedURLException;
 
@@ -14,7 +14,7 @@ import io.appium.java_client.android.AndroidDriver;
 
 
 
-public class PageAdvantage {
+public class ScreenTelaInicial {
 	
 	public WebElement elemento;
 	public WebDriver driver;

@@ -6,7 +6,7 @@ Funcionalidade: realizar cadastro de um usuario no app do advantage demo
  Contexto: 
     Dado que eu estiver na app
   @tag1
-  Cenario: 
+  Cenario: cadastro com sucesso
     
     Quando selecionar a opcao login
     E clicar em nova conta
@@ -15,7 +15,7 @@ Funcionalidade: realizar cadastro de um usuario no app do advantage demo
     Entao minha conta estar logada
 
   @tag2
-  Cenario: 
+  Cenario: cadastro ja existe
 
     Quando selecionar a opcao login
     E clicar em nova conta

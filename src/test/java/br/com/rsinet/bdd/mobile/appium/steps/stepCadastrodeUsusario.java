@@ -6,10 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
-import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
-import br.com.rsinet.bdd.mobile.appium.pageobjets.PageAdvantage;
-import br.com.rsinet.bdd.mobile.appium.pageobjets.PageCadastro;
-
+import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
+import br.com.rsinet.bdd.mobile.appium.screenfactory.ScreenTelaInicial;
+import br.com.rsinet.bdd.mobile.appium.screenfactory.ScreenCadastro;
+import br.com.rsinet.bdd.mobile.appium.testdate.Excel;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -18,13 +18,16 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class stepCadastrodeUsusario {
 	
-	public PageCadastro cadastro;
+	private ScreenCadastro cadastro;
 
 	public AndroidDriver<MobileElement>driver;
 	
+	private Excel excel;
+	
 	public stepCadastrodeUsusario() throws MalformedURLException {
 		driver =DriverFactory.InicializaDriver();
-		cadastro =PageFactory.initElements(driver, PageCadastro.class);
+		cadastro =PageFactory.initElements(driver, ScreenCadastro.class);
+		excel = new Excel();
 	}
 
 	
@@ -45,19 +48,19 @@ public class stepCadastrodeUsusario {
 
 	@Quando("^eu preencher o formulario$")
 	public void eu_preencher_o_formulario() throws Throwable {
-		cadastro.Username();
-		cadastro.Email();
-		cadastro.Password();
-		cadastro.Passwordconfirm();
-		cadastro.Firstname();
-		cadastro.Lastname();
-		cadastro.Phonenumber();
+		cadastro.Username(excel.sUsuario());
+		cadastro.Email(excel.sEmail());
+		cadastro.Password(excel.sSenha());
+		cadastro.Passwordconfirm(excel.sConfirmarSenha());
+		cadastro.Firstname(excel.sPrimeiroNome());
+		cadastro.Lastname(excel.sUltimoNome());
+		cadastro.Phonenumber(excel.sTelefone());
 		cadastro.rolartela();
-		cadastro.Country();
-		cadastro.State();
-		cadastro.Address();
-		cadastro.City();
-		cadastro.Zip();
+		cadastro.Country(excel.sPais());
+		cadastro.State(excel.sEstado());
+		cadastro.Address(excel.sEndereco());
+		cadastro.City(excel.sCidade());
+		cadastro.Zip(excel.sCep());
 		cadastro.rolartela1();
 
 	}
@@ -76,7 +79,6 @@ public class stepCadastrodeUsusario {
 
 	@Entao("^aparecerar que a conta ja existe$")
 	public void aparecerar_que_a_conta_ja_existe() throws Throwable {
-		cadastro.Esperar();
 		String asserts = driver.findElement(By.id("com.Advantage.aShopping:id/buttonRegister")).getText();
 		Assert.assertTrue(asserts.contains("REGISTER"), "REGISTER");
 	}

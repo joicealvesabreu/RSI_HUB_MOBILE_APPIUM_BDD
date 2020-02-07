@@ -1,4 +1,4 @@
-package br.com.rsinet.bdd.mobile.appium.pageobjets;
+package br.com.rsinet.bdd.mobile.appium.screenfactory;
 
 import java.net.MalformedURLException;
 
@@ -12,7 +12,7 @@ import br.com.rsinet.bdd.mobile.appium.testdate.Excel;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 
-public class PageCadastro {
+public class ScreenCadastro {
 
 	private WebDriver driver;
 	private WebElement element;
@@ -36,7 +36,7 @@ public class PageCadastro {
 	private WebElement username;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText")
-	private WebElement email;
+	private WebElement eemail;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.RelativeLayout/android.widget.EditText")
 	private WebElement passaword;
@@ -48,28 +48,28 @@ public class PageCadastro {
 	private WebElement firtname;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.LinearLayout/android.widget.RelativeLayout[2]/android.widget.EditText")
-	private WebElement lastname;
+	private WebElement llastname;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText")
-	private WebElement phonenumber;
+	private WebElement pphonenumber;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCountriesTitle")
-	private WebElement country;
+	private WebElement ccountry;
 	
 	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]")
 	private WebElement paisAlbania;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[1]/android.widget.LinearLayout[2]/android.widget.RelativeLayout/android.widget.EditText")
-	private WebElement state;
+	private WebElement sstate;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.RelativeLayout/android.widget.EditText")
-	private WebElement address;
+	private WebElement aaddress;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.EditText")
-	private WebElement city;
+	private WebElement ccity;
 
 	@FindBy(how = How.XPATH, using = "//android.view.ViewGroup[@content-desc=\"Home Page\"]/android.widget.LinearLayout[2]/android.widget.ScrollView/android.widget.LinearLayout/android.widget.LinearLayout[3]/android.widget.LinearLayout/android.widget.LinearLayout[2]/android.widget.RelativeLayout[2]/android.widget.EditText")
-	private WebElement zip;
+	private WebElement zzip;
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/checkBoxRecieveOffers")
 	private WebElement termo1;
@@ -110,69 +110,67 @@ public class PageCadastro {
 		cadastrar.click();
 	}
 
-	public void Username() throws Exception {
+	public void Username(String usuario) throws Exception {
 		username.click();
-		username.sendKeys(excel.sUsuario()); //"JGANA23"
+		username.sendKeys(usuario); //"JGANA23"
 	}
 
-	public void Email() throws InterruptedException {
-	//	WebDriverWait wait = new WebDriverWait(driver,10); 
-		//Thread.sleep(5000);
-		
-		email.click();
-		email.sendKeys("joice@gmail.com");
+	public void Email(String email) throws InterruptedException {
+	
+		eemail.click();
+		eemail.sendKeys(email);
 	}
 
-	public void Password() throws InterruptedException {
+	public void Password(String password) throws InterruptedException {
 		passaword.click();
-		passaword.sendKeys("Natalice2");
+		passaword.sendKeys(password);
 	}
 
-	public void Passwordconfirm() {
+	public void Passwordconfirm(String passwordconfirm) {
 		passawordcomfirm.click();
-		passawordcomfirm.sendKeys("Natalice2");
+		passawordcomfirm.sendKeys(passwordconfirm);
 		
 	}
 
-	public void Firstname() {
+	public void Firstname(String firstname) {
 		firtname.click();
-		firtname.sendKeys("Joice");
+		firtname.sendKeys(firstname);
 	}
 
-	public void Lastname() {
-		lastname.click();
-		lastname.sendKeys("Abreu");
+	public void Lastname(String lastname) {
+		llastname.click();
+		llastname.sendKeys(lastname);
 	}
 
-	public void Phonenumber() {
-		phonenumber.click();
-		phonenumber.sendKeys("(11)941707376");
+	public void Phonenumber(String phonenumber) {
+		pphonenumber.click();
+		pphonenumber.sendKeys(phonenumber);
 	}
 
-	public void Country() {
-		country.click();
+	public void Country(String country) {
+		ccountry.click();
 		paisAlbania.click();
 		
 	}
 
-	public void State() {
-		state.click();
-		state.sendKeys("Taboao");
+	public void State(String state) {
+		sstate.click();
+		sstate.sendKeys(state);
 	}
 
-	public void Address() {
-		address.click();
-		address.sendKeys("Rua Albano Leite");
+	public void Address(String address) {
+		aaddress.click();
+		aaddress.sendKeys(address);
 	}
 
-	public void City() {
-		city.click();
-		city.sendKeys("SP");
+	public void City(String city) {
+		ccity.click();
+		ccity.sendKeys(city);
 	}
 
-	public void Zip() {
-		zip.click();
-		zip.sendKeys("06773-050");
+	public void Zip(String zip) {
+		zzip.click();
+		zzip.sendKeys(zip);
 	}
 
 	public void Termo1() {

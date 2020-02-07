@@ -12,9 +12,10 @@ import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/Feature", glue = { "br.com.rsinet.bdd.mobile.appium.steps" }, tags = {"@tag1, @tag2,"},
-	/*	"@telainicial1,@telainicial1 " },*/ plugin = { "json:target/cucumber-reports/Cucumber.json",
-				"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, monochrome = true)
+@CucumberOptions(features = "src/test/resources/Feature", glue = { "br.com.rsinet.bdd.mobile.appium.steps" },
+//tags = {"@telainicial1,@telainicial1 "},
+plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html" }, 
+monochrome = true)
 
 public class TestRunner {
 	

@@ -1,4 +1,4 @@
-package br.com.rsinet.bdd.mobile.appium.pageobjets;
+package br.com.rsinet.bdd.mobile.appium.screenfactory;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -7,7 +7,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 
-public class PagePesquisaPorLupa {
+public class ScreenPesquisaPorLupa {
 	private WebDriver driver;
 	private WebElement element;
 	

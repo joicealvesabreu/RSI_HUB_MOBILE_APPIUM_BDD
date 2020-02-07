@@ -9,8 +9,8 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.cucumber.listener.Reporter;
 
-import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
-import br.com.rsinet.bdd.mobile.appium.pageobjets.PagePesquisaPorLupa;
+import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
+import br.com.rsinet.bdd.mobile.appium.screenfactory.ScreenPesquisaPorLupa;
 import cucumber.api.java.pt.Dado;
 import cucumber.api.java.pt.Entao;
 import cucumber.api.java.pt.Quando;
@@ -19,13 +19,13 @@ import io.appium.java_client.android.AndroidDriver;
 
 public class stepPesquisaPorLupa {
 	
-	public PagePesquisaPorLupa lupa;
+	public ScreenPesquisaPorLupa lupa;
 
 	public AndroidDriver<MobileElement>driver;
 	
 	public stepPesquisaPorLupa() throws MalformedURLException{
 		driver =DriverFactory.InicializaDriver();
-		lupa =PageFactory.initElements(driver, PagePesquisaPorLupa.class);
+		lupa =PageFactory.initElements(driver, ScreenPesquisaPorLupa.class);
 	}
 
 	@Dado("^que eu esteja na aplicacao$")
@@ -45,14 +45,18 @@ public class stepPesquisaPorLupa {
 
 	@Quando("^clicar no produto$")
 	public void clicar_no_produto() throws Throwable {
-		lupa.Produto();;
+		lupa.Produto();
 	}
 
 	@Quando("^eu adicioanar no carinho$")
 	public void eu_adicioanar_no_carinho() throws Throwable {
 		lupa.Carinho();
 	}
-
+	@Quando("^eu escrevar o nome do produto que nao existe$")
+	public void eu_escrevar_o_nome_do_produto_que_nao_existe () throws Throwable {
+		lupa.SearchFalse();
+	}
+	
 	@Entao("^serei direcionado a tela de login para cadastro$")
 	public void serei_direcionado_a_tela_de_login_para_cadastro() throws Throwable {
 		String chegounologin = driver.findElement(By.xpath(
