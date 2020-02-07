@@ -5,10 +5,12 @@
     <theme>standard</theme>
   
     <encoding>UTF-8</encoding>
+    
+    <protocol>htpps</protocol>
 
     <protocol>Mobile-Appium</protocol>
   
-    <documentTitle>Teste APP-Advance</documentTitle>
+    <documentTitle>Teste-APP-Advance</documentTitle>
    
     <reportName>Teste APP Advance - Cucumber Report</reportName>
     

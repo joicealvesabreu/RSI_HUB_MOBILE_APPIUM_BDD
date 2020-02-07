@@ -15,10 +15,10 @@ import com.cucumber.listener.Reporter;
 import com.google.common.io.Files;
 
 import br.com.rsinet.bdd.mobile.appium.pageobjets.DriverFactory;
-import br.com.rsinet.bdd.mobile.appium.utility.Report;
+
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
-import cucumber.api.java.Before;
+
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
 
@@ -31,6 +31,8 @@ public class Hooks {
 	public void hooks() {
 		this.driver = driver;
 	}
+	
+	
 
 	@After(order =0)
 	public void finaliza() {
@@ -54,6 +56,6 @@ public class Hooks {
 			Reporter.addScreenCaptureFromPath(destinationPath.toString());
 		} catch (IOException e) {
 		}
-
+	
 	}
 }

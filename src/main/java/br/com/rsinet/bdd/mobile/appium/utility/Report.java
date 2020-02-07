@@ -9,6 +9,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Protocol;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 
 import io.appium.java_client.MobileElement;
@@ -29,7 +30,7 @@ public class Report {
 		htmlReporter.config().setDocumentTitle("Relatorio de Automacao Mobile"); // Titulo do report
 		htmlReporter.config().setReportName("Relatorio Funcional"); // Nome do report
 		htmlReporter.config().setTheme(Theme.DARK); // Seleciona o tema
-
+		htmlReporter.config().setProtocol(Protocol.HTTP);
 		extent = new ExtentReports();
 
 		extent.attachReporter(htmlReporter);
