@@ -24,6 +24,10 @@ public class Excel {
 		String sSenha = ExcelUtils.getCellData(1, 2);
 		return sSenha;
 	}
+	public String s() throws Exception {
+		String sConfirmarSenha = ExcelUtils.getCellData(1, 2);
+		return sConfirmarSenha;
+	}
 
 	public String sConfirmarSenha() throws Exception {
 		String sConfirmarSenha = ExcelUtils.getCellData(1, 2);
