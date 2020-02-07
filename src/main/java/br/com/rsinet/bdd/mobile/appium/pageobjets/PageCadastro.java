@@ -8,8 +8,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
-
-
+import br.com.rsinet.bdd.mobile.appium.testdate.Excel;
 import io.appium.java_client.TouchAction;
 import io.appium.java_client.touch.offset.PointOption;
 
@@ -18,9 +17,10 @@ public class PageCadastro {
 	private WebDriver driver;
 	private WebElement element;
 
-
+	Excel excel = new Excel();
+	
 	public void PageCadastro (WebDriver driver) {
-				PageFactory.initElements(driver, this);
+				PageFactory.initElements(driver, this);	
 	}
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
@@ -112,7 +112,7 @@ public class PageCadastro {
 
 	public void Username() throws Exception {
 		username.click();
-		username.sendKeys("JGANA23");
+		username.sendKeys(excel.sUsuario()); //"JGANA23"
 	}
 
 	public void Email() throws InterruptedException {
