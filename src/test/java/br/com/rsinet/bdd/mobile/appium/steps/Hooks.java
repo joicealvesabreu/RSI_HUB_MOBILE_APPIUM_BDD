@@ -29,6 +29,7 @@ public class Hooks {
 	public Reporter report;
 	
 	public void hooks() {
+		
 		this.driver = driver;
 
 	}
