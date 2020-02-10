@@ -47,7 +47,7 @@ public class Hooks {
 	public void finalizarreport(Scenario scenario) throws Exception, MalformedURLException {
 		
 		File screenshot = ((TakesScreenshot) DriverFactory.InicializaDriver()).getScreenshotAs(OutputType.FILE);
-		String caminho = System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + scenario.getName() + "-"
+		String caminho = System.getProperty("user.dir") + "/cucumber-reports/screenshots/" + scenario.getName() + "-"
 				+ Generator.dataHoraParaArquivo() + ".png";
 		try {
 			FileUtils.copyFile(screenshot, new File(caminho));
