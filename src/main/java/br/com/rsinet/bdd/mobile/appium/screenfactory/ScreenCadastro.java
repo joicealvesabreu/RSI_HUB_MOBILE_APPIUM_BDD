@@ -18,9 +18,9 @@ public class ScreenCadastro {
 	private WebElement element;
 
 	Excel excel = new Excel();
-	
-	public void PageCadastro (WebDriver driver) {
-				PageFactory.initElements(driver, this);	
+
+	public void PageCadastro(WebDriver driver) {
+		PageFactory.initElements(driver, this);
 	}
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/imageViewMenu")
@@ -55,7 +55,7 @@ public class ScreenCadastro {
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewCountriesTitle")
 	private WebElement ccountry;
-	
+
 	@FindBy(how = How.XPATH, using = "/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.ListView/android.widget.TextView[2]")
 	private WebElement paisAlbania;
 
@@ -79,25 +79,27 @@ public class ScreenCadastro {
 
 	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/buttonRegister")
 	private WebElement register;
-	
-	@FindBy(how =How.ID, using ="com.Advantage.aShopping:id/imageViewMenu")
+
+	@FindBy(how = How.ID, using = "com.Advantage.aShopping:id/textViewMenuUser")
 	private WebElement menuverificacao;
-	
+
 	public void Enter() throws MalformedURLException {
 		(new TouchAction(DriverFactory.InicializaDriver())).tap(PointOption.point(989, 1701)).perform();
 	}
-	
-	public void rolartela()throws MalformedURLException, InterruptedException {
+
+	public void rolartela() throws MalformedURLException, InterruptedException {
 		Thread.sleep(5000);
-		(new TouchAction(DriverFactory.InicializaDriver())).press(PointOption.point(458, 1353)).moveTo(PointOption.point(542, 412)).release().perform();
-				  		  
+		(new TouchAction(DriverFactory.InicializaDriver())).press(PointOption.point(458, 1353))
+				.moveTo(PointOption.point(542, 412)).release().perform();
+
 	}
-	public void rolartela1()throws MalformedURLException {
-		(new TouchAction(DriverFactory.InicializaDriver())).press(PointOption.point(487, 1752)).moveTo(PointOption.point(504, 1025)).release().perform();
-				  		  
+
+	public void rolartela1() throws MalformedURLException {
+		(new TouchAction(DriverFactory.InicializaDriver())).press(PointOption.point(487, 1752))
+				.moveTo(PointOption.point(504, 1025)).release().perform();
+
 	}
-	
-	
+
 	public void Menu() {
 		menu.click();
 	}
@@ -112,11 +114,11 @@ public class ScreenCadastro {
 
 	public void Username(String usuario) throws Exception {
 		username.click();
-		username.sendKeys(usuario); //"JGANA23"
+		username.sendKeys(usuario); // "JGANA23"
 	}
 
 	public void Email(String email) throws InterruptedException {
-	
+
 		eemail.click();
 		eemail.sendKeys(email);
 	}
@@ -129,7 +131,7 @@ public class ScreenCadastro {
 	public void Passwordconfirm(String passwordconfirm) {
 		passawordcomfirm.click();
 		passawordcomfirm.sendKeys(passwordconfirm);
-		
+
 	}
 
 	public void Firstname(String firstname) {
@@ -150,7 +152,7 @@ public class ScreenCadastro {
 	public void Country(String country) {
 		ccountry.click();
 		paisAlbania.click();
-		
+
 	}
 
 	public void State(String state) {
@@ -184,8 +186,17 @@ public class ScreenCadastro {
 	public void Register() {
 		register.click();
 	}
+
 	public void Esperar() throws InterruptedException {
 		Thread.sleep(5000);
 	}
-	
+
+	public String usernamevericacao() {
+		return menuverificacao.getText();
+	}
+
+	public String verificamsgderror() {
+		return register.getText();
+
+	}
 }

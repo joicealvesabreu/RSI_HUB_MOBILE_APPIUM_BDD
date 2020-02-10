@@ -67,14 +67,15 @@ public class stepCadastrodeUsusario {
 	@Quando("^eu clicar em registrar$")
 	public void eu_clicar_em_registrar() throws Throwable {
 	   cadastro.Register();
+	   cadastro.Esperar();
 	    
 	}
 
 	@Entao("^minha conta estar logada$")
 	public void minha_conta_estar_logada() throws Throwable {
-		cadastro.Esperar();
-		String asserts = driver.findElement(By.id("com.Advantage.aShopping:id/textViewAdvantage")).getText();
-		Assert.assertTrue(asserts.contains("Advantage"), "Advantage");
+		cadastro.Menu();
+		String asserts = cadastro.usernamevericacao();
+		Assert.assertTrue(asserts.contains(excel.sUsuario()));
 	}
 
 	@Entao("^aparecerar que a conta ja existe$")
