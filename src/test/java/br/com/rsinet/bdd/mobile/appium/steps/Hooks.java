@@ -4,9 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-
+import org.openqa.selenium.WebDriverException;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -15,6 +16,7 @@ import com.cucumber.listener.Reporter;
 import com.google.common.io.Files;
 
 import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
+import br.com.rsinet.bdd.mobile.appium.utility.Generator;
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
 
@@ -42,20 +44,16 @@ public class Hooks {
 	}
 
 	@After(order = 1)
-	public void finalizarreport(Scenario scenario) {
-
-		String screenshotName = scenario.getName().replaceAll(" ", "_");
+	public void finalizarreport(Scenario scenario) throws Exception, MalformedURLException {
+		
+		File screenshot = ((TakesScreenshot) DriverFactory.InicializaDriver()).getScreenshotAs(OutputType.FILE);
+		String caminho = System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + scenario.getName() + "-"
+				+ Generator.dataHoraParaArquivo() + ".png";
 		try {
-			File sourcePath = ((TakesScreenshot) DriverFactory.InicializaDriver())
-					.getScreenshotAs(OutputType.FILE);
-
-			File destinationPath = new File(
-					System.getProperty("user.dir") + "/target/cucumber-reports/screenshots/" + screenshotName + ".png");
-
-			Files.copy(sourcePath, destinationPath);
-			Reporter.addScreenCaptureFromPath(destinationPath.toString());
-		} catch (IOException e) {
+			FileUtils.copyFile(screenshot, new File(caminho));
+			Reporter.addScreenCaptureFromPath(caminho.toString());
+		} catch (Exception e) {
+			System.out.println("Houveram problemas ao copiar o arquivo para a pasta" + e.getMessage());
 		}
-	
 	}
 }

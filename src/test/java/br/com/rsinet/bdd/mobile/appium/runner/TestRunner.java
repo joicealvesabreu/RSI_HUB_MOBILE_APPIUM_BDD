@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
-
+import cucumber.api.SnippetType;
 
 import com.cucumber.listener.Reporter;
 
@@ -15,7 +15,10 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/resources/Feature", glue = { "br.com.rsinet.bdd.mobile.appium.steps" },
 //tags = {"@telainicial1,@telainicial1 "},
 tags = {"@tag2"},
-plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/report.html" }, 
+plugin = {"pretty" , "json:target/cucumber-reports/json-report.json", "com.cucumber.listener.ExtentCucumberFormatter:relatorio/report.html"}, 
+snippets = SnippetType.CAMELCASE, 
+dryRun = false, 
+strict = false,
 monochrome = true)
 
 public class TestRunner {
@@ -23,7 +26,7 @@ public class TestRunner {
 	@AfterClass
 	public static void ExtentReport() {
 	
-		Reporter.loadXMLConfig(new File("C:\\Users\\joice.abreu\\Desktop\\RSI_HUB_MOBILE_APPIUM_BDD\\config\\extension-config.xml"));
+		Reporter.loadXMLConfig(new File("src/test/resources/config/extension-config.xml"));;
 		Reporter.setSystemInfo("User Name", System.getProperty("Joice.Abreu"));
 		Reporter.setSystemInfo("Time zone", System.getProperty("user.timezone"));
 		Reporter.setSystemInfo("Machine", "Windows 10" + "64 Bit");
