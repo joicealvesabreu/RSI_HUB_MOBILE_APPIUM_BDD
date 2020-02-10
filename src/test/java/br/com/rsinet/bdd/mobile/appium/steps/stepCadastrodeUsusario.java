@@ -2,9 +2,10 @@ package br.com.rsinet.bdd.mobile.appium.steps;
 
 import java.net.MalformedURLException;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
+
 
 import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
 import br.com.rsinet.bdd.mobile.appium.screenfactory.ScreenTelaInicial;
@@ -81,6 +82,6 @@ public class stepCadastrodeUsusario {
 	@Entao("^aparecerar que a conta ja existe$")
 	public void aparecerar_que_a_conta_ja_existe() throws Throwable {
 		String asserts = driver.findElement(By.id("com.Advantage.aShopping:id/buttonRegister")).getText();
-		Assert.assertTrue(asserts.contains("REGISTER"), "REGISTER");
+		Assert.assertTrue(asserts.contains("REGISTER"));
 	}
 }
