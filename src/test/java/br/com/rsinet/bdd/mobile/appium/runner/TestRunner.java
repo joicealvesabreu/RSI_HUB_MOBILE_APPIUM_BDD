@@ -17,14 +17,14 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/resources/Feature", glue = { "br.com.rsinet.bdd.mobile.appium.steps" },
-tags = {"@telainicial1"},
+//tags = {"@telainicial1"},
 
 plugin = {"pretty","com.cucumber.listener.ExtentCucumberFormatter:cucumber-reports/report.html"}, 
 monochrome = true)
 
 public class TestRunner {
 	
-	@AfterClass
+	@AfterClass 
 	public static  void initReport() {
 	
 		Reporter.loadXMLConfig(new File("src/test/resources/config/extension-config.xml"));

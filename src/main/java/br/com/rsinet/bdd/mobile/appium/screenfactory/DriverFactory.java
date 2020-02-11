@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 public class DriverFactory {
 
@@ -26,6 +27,7 @@ public class DriverFactory {
 			capabilities.setCapability("platformName", "Android");
 			capabilities.setCapability("appPackage", "com.Advantage.aShopping");
 			capabilities.setCapability("appActivity", "com.Advantage.aShopping.SplashActivity");
+			capabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, "120");
 			capabilities.setCapability("unicodeKeyboard", true);
 			capabilities.setCapability("resetKeyboard", true);
 		
@@ -34,7 +36,7 @@ public class DriverFactory {
 		}catch (MalformedURLException e1) {
 			e1.printStackTrace();
 		}
-		driver.manage().timeouts().implicitlyWait(80, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 	}
 	return driver;
 	

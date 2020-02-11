@@ -12,8 +12,8 @@ import org.openqa.selenium.WebDriverException;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 
-import com.cucumber.listener.Reporter;
 import com.google.common.io.Files;
+import com.cucumber.listener.Reporter;
 
 import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
 import br.com.rsinet.bdd.mobile.appium.utility.Generator;

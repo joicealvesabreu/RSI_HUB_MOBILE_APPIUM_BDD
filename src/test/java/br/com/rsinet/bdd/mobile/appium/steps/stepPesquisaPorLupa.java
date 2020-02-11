@@ -7,8 +7,6 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.PageFactory;
 
-import com.cucumber.listener.Reporter;
-
 import br.com.rsinet.bdd.mobile.appium.screenfactory.DriverFactory;
 import br.com.rsinet.bdd.mobile.appium.screenfactory.ScreenPesquisaPorLupa;
 import cucumber.api.java.pt.Dado;
@@ -63,7 +61,6 @@ public class stepPesquisaPorLupa {
 				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView"))
 				.getText();
 		Assert.assertTrue(chegounologin.contains("Login"));
-		Reporter.addStepLog("O produto foi encontra");
 	}
 
 	@Entao("^tera a mensagem que nao existe o produto pesquisado$")
@@ -72,7 +69,7 @@ public class stepPesquisaPorLupa {
 				.isDisplayed();
 		Assert.assertTrue(naoExisteesseproduto);
 		System.out.println(naoExisteesseproduto);
-		Reporter.addStepLog("O produto não existe resultado");
+		
 	}
 
 }
