@@ -46,7 +46,7 @@ public class stepsTelainicial {
 	@Entao("^serei direcionado a tela de login$")
 	public void serei_direcionado_a_tela_de_login() throws Throwable {
 		String chegounologin = driver.findElement(By.xpath(
-				"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView"))
+				"erarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout[1]/android.widget.RelativeLayout/android.widget.TextView"))
 				.getText();
 		Assert.assertTrue(chegounologin.contains("Login"));
 		

@@ -74,14 +74,15 @@ public class stepCadastrodeUsusario {
 
 	@Entao("^minha conta estar logada$")
 	public void minha_conta_estar_logada() throws Throwable {
-		cadastro.Menu();
+		cadastro.Esperar();
 		String asserts = cadastro.usernamevericacao();
 		Assert.assertTrue(asserts.contains(excel.sUsuario()));
 	}
 
 	@Entao("^aparecerar que a conta ja existe$")
 	public void aparecerar_que_a_conta_ja_existe() throws Throwable {
-		String asserts = driver.findElement(By.id("com.Advantage.aShopping:id/buttonRegister")).getText();
+		
+		String asserts = cadastro.verificamsgderror();
 		Assert.assertTrue(asserts.contains("REGISTER"));
 	}
 }

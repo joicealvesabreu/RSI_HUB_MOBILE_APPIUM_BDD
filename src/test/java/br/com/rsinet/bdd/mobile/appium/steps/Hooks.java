@@ -40,7 +40,7 @@ public class Hooks {
 	@After(order =0)
 	public void finaliza() {
 
-		driver = DriverFactory.FechandoDriver();
+	//	driver = DriverFactory.FechandoDriver();
 	}
 
 	@After(order = 1)
